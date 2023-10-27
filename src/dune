@@ -1,0 +1,10 @@
+(melange.emit
+ (target node)
+ (alias main)
+ (module_systems (es6 mjs))
+ (preprocess (pps melange.ppx)))
+
+(rule
+ (alias runtest)
+ (deps (:input ./node/src/one.mjs) %{bin:node})
+ (action (run time %{bin:node} %{input})))
