@@ -55,3 +55,7 @@ format-check: ## Checks if format is correct
 .PHONY: watch
 watch: ## Watch for the filesystem and rebuild on every change
 	$(DUNE) build --watch @react @node
+
+.PHONY: test
+test: ## Run test suite
+	$(DUNE) test --no-buffer

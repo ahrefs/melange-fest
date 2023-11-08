@@ -1,0 +1,29 @@
+(melange.emit
+ (target node)
+ (alias main)
+ (libraries
+  melange-fest
+  melange-fest.dom
+  melange-testing-library.dom
+  melange-testing-library.react)
+ (preprocess
+  (pps melange.ppx reason-react-ppx))
+ (module_systems
+  (es6 mjs)))
+
+(rule
+ (alias runtest)
+ (deps
+  (:input ./node/test/one.mjs)
+  %{bin:node})
+ (action
+  (run time %{bin:node} %{input})))
+
+(rule
+ (alias runtest)
+ (deps
+  (alias_rec main)
+  (:input ./node/test/two.mjs)
+  %{bin:node})
+ (action
+  (run time %{bin:node} %{input})))

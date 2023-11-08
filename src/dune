@@ -1,25 +1,15 @@
-(melange.emit
- (target node)
- (alias main)
- (libraries melange-testing-library.dom melange-testing-library.react)
+(library
+ (name fest)
+ (public_name melange-fest)
+ (modes melange)
+ (modules fest)
  (preprocess
-  (pps melange.ppx reason-react-ppx))
- (module_systems
-  (es6 mjs)))
+  (pps melange.ppx)))
 
-(rule
- (alias runtest)
- (deps
-  (:input ./node/src/one.mjs)
-  %{bin:node})
- (action
-  (run time %{bin:node} %{input})))
-
-(rule
- (alias runtest)
- (deps
-  (alias_rec main)
-  (:input ./node/src/two.mjs)
-  %{bin:node})
- (action
-  (run time %{bin:node} %{input})))
+(library
+ (name domloader)
+ (public_name melange-fest.dom)
+ (modes melange)
+ (modules domloader)
+ (preprocess
+  (pps melange.ppx)))
