@@ -10,10 +10,10 @@ depends: [
   "ocaml"
   "dune" {>= "3.8"}
   "melange" {>= "2.0.0"}
-  "reason"
-  "reason-react"
-  "reason-react-ppx"
-  "melange-testing-library"
+  "reason" {with-test}
+  "reason-react" {with-test}
+  "reason-react-ppx" {with-test}
+  "melange-testing-library" {with-test}
   "ocaml-lsp-server" {with-test}
   "odoc" {with-doc}
 ]
