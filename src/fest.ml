@@ -20,3 +20,7 @@ external strict_equal : 'a -> 'a -> unit = "strictEqual"
 [@@mel.send.pipe: assertion]
 
 let strictEqual = strict_equal
+
+external deep_strict_equal: 'a -> 'a -> unit = "deepStrictEqual" [@@mel.send.pipe: assertion]
+
+let deepStrictEqual = deep_strict_equal
