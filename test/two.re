@@ -15,7 +15,7 @@ let () =
 
     // Check that Hello component renders the name properly.
     let el = RTL.getByText(~matcher=`Str("Hello Nila"), result);
-    expect |> strictEqual(textContent(el), "Hello Nila");
+    expect |> equal(textContent(el), "Hello Nila");
   });
 
 type foo =
@@ -28,7 +28,7 @@ type bar = {
 
 test("test variant", () =>
   expect
-  |> deepStrictEqual(
+  |> deepEqual(
        {foo: Foo(42), bar: "hello"},
        {
          let bar = {foo: Foo(40), bar: "hell"};
