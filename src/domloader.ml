@@ -1,7 +1,8 @@
 (* just here to allow other modules to load the raw code below *)
 let init () = ()
 
-[%%mel.raw {|
+[%%mel.raw
+{|
 import * as jsdom from 'jsdom';
 
 const j = new jsdom.JSDOM(undefined, {

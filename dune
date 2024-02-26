@@ -2,4 +2,5 @@
 ;; project from `node_modules`, this should work:
 ;; - remove the `dirs` stanza below
 ;; - add a `(subdir node_modules (dirs only_your_package))`
+
 (dirs :standard \ node_modules)
