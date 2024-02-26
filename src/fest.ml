@@ -22,7 +22,7 @@ external expect : assertion = "node:assert/strict" [@@mel.module]
 external equal : 'a -> 'a -> unit = "strictEqual"
 [@@mel.send.pipe: assertion]
 
-(** Tests for deep equality between the actual and expected parameters. *)
+(** Tests for deep strict equality between the actual and expected parameters. *)
 external deep_equal: 'a -> 'a -> unit = "deepStrictEqual" [@@mel.send.pipe: assertion]
 
 (** Alias for [deep_equal] *)

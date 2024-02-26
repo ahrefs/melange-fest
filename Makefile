@@ -63,3 +63,7 @@ test: ## Run test suite
 .PHONY: docs
 docs: ## Build the docs
 	$(DUNE) build @doc
+
+.PHONY: preview
+preview: docs ## Preview the docs
+	cd _build/default/_doc/_html/ && python -m http.server
