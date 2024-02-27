@@ -22,7 +22,7 @@ init: create-switch install ## Configure everything to develop this repository i
 install: ## Install development dependencies
 	npm install
 	opam update
-	opam install -y . --deps-only --with-test
+	opam install -y . --deps-only --with-test --with-doc
 
 .PHONY: build
 build: ## Build the project
@@ -59,3 +59,11 @@ watch: ## Watch for the filesystem and rebuild on every change
 .PHONY: test
 test: ## Run test suite
 	$(DUNE) test --no-buffer
+
+.PHONY: docs
+docs: ## Build the docs
+	$(DUNE) build @doc
+
+.PHONY: preview
+preview: docs ## Preview the docs
+	cd _build/default/_doc/_html/ && python -m http.server

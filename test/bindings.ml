@@ -1,8 +1,7 @@
 open Fest
 
-let () = test "strict_equal" (fun () -> expect |> strict_equal 1 1)
-let () = test "strictEqual" (fun () -> expect |> strictEqual 1 1)
-let () = test "equal" (fun () -> expect |> equal "foo" "foo")
+let () = test "equal" (fun () -> expect |> equal 1 1)
+let () = test "equal 2" (fun () -> expect |> equal "foo" "foo")
 
 module Deep_strict_equal = struct
   type foo = Foo of int
@@ -19,8 +18,8 @@ module Deep_strict_equal = struct
           in
           bar)
 
-  let () = test "deep_strict_equal" (assertion ~f:deep_strict_equal)
-  let () = test "deepStrictEqual" (assertion ~f:deepStrictEqual)
+  let () = test "deep_equal" (assertion ~f:deep_equal)
+  let () = test "deepEqual" (assertion ~f:deepEqual)
 end
 
 module Promise = struct

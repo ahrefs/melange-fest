@@ -14,16 +14,14 @@
 (rule
  (alias runtest)
  (deps
-  (:input ./node/test/bindings.mjs)
-  %{bin:node})
+  (:input ./node/test/bindings.mjs))
  (action
-  (run %{bin:node} %{input})))
+  (run node %{input})))
 
 (rule
  (alias runtest)
  (deps
   (alias_rec main)
-  (:input ./node/test/components.mjs)
-  %{bin:node})
+  (:input ./node/test/components.mjs))
  (action
-  (run %{bin:node} %{input})))
+  (run node %{input})))
