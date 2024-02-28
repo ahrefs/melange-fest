@@ -1,8 +1,4 @@
 {
-  "scripts": {
-    "bundle": "webpack --mode production --entry ./_build/default/src/output/src/ReactApp.js",
-    "serve": "webpack serve --open --mode development --entry ./_build/default/src/output/src/ReactApp.js"
-  },
   "dependencies": {
     "@testing-library/react": "^14.0.0",
     "jsdom": "^22.1.0",

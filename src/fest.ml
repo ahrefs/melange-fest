@@ -1,3 +1,5 @@
+(** Bindings for functions from {{: https://nodejs.org/api/test.html#test-runner }node:test} and {{: https://nodejs.org/api/assert.html#strict-assertion-mode }node:assert/strict} modules  *)
+
 external test : string -> (unit -> unit) -> unit = "test"
 [@@mel.module "node:test"]
 (** Create a test with a given name and callback function that runs the test *)
@@ -19,6 +21,10 @@ type assertion
 external expect : assertion = "node:assert/strict"
 [@@mel.module]
 (** The {{: https://nodejs.org/api/assert.html#strict-assertion-mode} node:assert/strict} module object *)
+
+external ok : bool -> unit = "ok"
+[@@mel.send.pipe: assertion]
+(** Tests if the given value is true *)
 
 external equal : 'a -> 'a -> unit = "strictEqual"
 [@@mel.send.pipe: assertion]

@@ -6,7 +6,7 @@ Domloader.init();
 
 module Hello = {
   [@react.component]
-  let make = (~text) => <div> {("Hello " ++ text)->React.string} </div>;
+  let make = (~text) => <div> {"Hello " ++ text |> React.string} </div>;
 };
 
 let () =

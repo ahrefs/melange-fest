@@ -1,7 +1,8 @@
 open Fest
 
-let () = test "equal" (fun () -> expect |> equal 1 1)
-let () = test "equal 2" (fun () -> expect |> equal "foo" "foo")
+let () = test "equal" (fun () -> expect |> equal (4 - 3) 1)
+let () = test "equal 2" (fun () -> expect |> equal ("f" ^ "oo") "foo")
+let () = test "ok" (fun () -> expect |> ok (true || false))
 
 module Deep_strict_equal = struct
   type foo = Foo of int

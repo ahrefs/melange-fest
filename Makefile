@@ -4,6 +4,8 @@ DUNE = opam exec -- dune
 
 .DEFAULT_GOAL := help
 
+DUNE_BUILD_DIR := $(shell pwd)/_build
+
 .PHONY: help
 help: ## Print this help message
 	@echo "List of available make commands";
@@ -32,14 +34,6 @@ build: ## Build the project
 build_verbose: ## Build the project
 	$(DUNE) build --verbose
 
-.PHONY: serve
-serve: ## Serve the application with a local HTTP server
-	npm run serve
-
-.PHONY: bundle
-bundle: ## Bundle the JavaScript application
-	npm run bundle
-
 .PHONY: clean
 clean: ## Clean build artifacts and other generated files
 	$(DUNE) clean
@@ -54,16 +48,23 @@ format-check: ## Checks if format is correct
 
 .PHONY: watch
 watch: ## Watch for the filesystem and rebuild on every change
-	$(DUNE) build --watch @react @node
+	$(DUNE) build --watch
 
 .PHONY: test
 test: ## Run test suite
-	$(DUNE) test --no-buffer
+	$(DUNE) build @runtest --no-buffer
 
 .PHONY: docs
 docs: ## Build the docs
-	$(DUNE) build @doc
+	rm -rf _docs
+	mkdir _docs
+	cp docs/index.html _docs
+	ODOC_SYNTAX=reason $(DUNE) build @doc
+	mv _build/default/_doc/_html/odoc.support _docs
+	mv _build/default/_doc/_html/melange-fest _docs/reason
+	ODOC_SYNTAX=ocaml $(DUNE) build @doc
+	mv _build/default/_doc/_html/melange-fest _docs/ocaml
 
 .PHONY: preview
 preview: docs ## Preview the docs
-	cd _build/default/_doc/_html/ && python -m http.server
+	cd _docs && python -m http.server

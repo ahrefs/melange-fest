@@ -2,5 +2,6 @@
 node_modules
 _build
 _opam
+_docs
 dist/
 .vscode

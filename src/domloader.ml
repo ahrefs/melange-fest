@@ -1,5 +1,7 @@
-(* just here to allow other modules to load the raw code below *)
-let init () = ()
+(** Initialize the Node environment to make it ready to run tests *)
+let init () =
+  (* this function doesn't do anything, it just allows other modules to load the raw code below *)
+  ()
 
 [%%mel.raw
 {|
