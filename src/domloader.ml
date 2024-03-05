@@ -3,6 +3,7 @@ let init () =
   (* this function doesn't do anything, it just allows other modules to load the raw code below *)
   ()
 
+(* Source: https://samthor.au/2022/test-react-builtin/ *)
 [%%mel.raw
 {|
 import * as jsdom from 'jsdom';

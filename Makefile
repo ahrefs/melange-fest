@@ -4,6 +4,7 @@ DUNE = opam exec -- dune
 
 .DEFAULT_GOAL := help
 
+# Make sure build directory is the same in CI even though no local switch is being used
 DUNE_BUILD_DIR := $(shell pwd)/_build
 
 .PHONY: help
