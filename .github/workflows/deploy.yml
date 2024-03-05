@@ -4,10 +4,10 @@ on:
   # Runs on pushes targeting the `master` branch.
   push:
     branches:
-    - master
+      - master
   schedule:
     # Prime the caches every Monday
-    - cron: 0 1 * * MON
+      - cron: 0 1 * * MON
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -38,7 +38,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
       - uses: ocaml/setup-ocaml@v2
         with:
@@ -55,6 +55,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_build/default/_doc/_html
+          publish_dir: ./_docs
           enable_jekyll: false
           force_orphan: true
