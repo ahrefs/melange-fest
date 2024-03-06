@@ -57,14 +57,13 @@ test: ## Run test suite
 
 .PHONY: docs
 docs: ## Build the docs
+	$(DUNE) build @doc
 	rm -rf _docs
 	mkdir _docs
 	cp docs/index.html _docs
-	ODOC_SYNTAX=reason $(DUNE) build @doc
 	mv _build/default/_doc/_html/odoc.support _docs
-	mv _build/default/_doc/_html/melange-fest _docs/reason
-	ODOC_SYNTAX=ocaml $(DUNE) build @doc
 	mv _build/default/_doc/_html/melange-fest _docs/ocaml
+	mv _build/reason/_doc/_html/melange-fest _docs/reason
 
 .PHONY: preview
 preview: docs ## Preview the docs
