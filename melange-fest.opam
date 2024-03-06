@@ -2,15 +2,18 @@ opam-version: "2.0"
 synopsis: "A minimal test framework for Melange"
 description: "A minimal test framework for Melange using Node test runner"
 maintainer: [
-  "Javier Chávarri <javier.chavarri@gmail.com>"
+  "Feihong Hsu <feihong.hsu@ahrefs.com>"
+  "Javier Chávarri <javier.chavarri@ahrefs.com>"
 ]
 authors: [
-  "Javier Chávarri <javier.chavarri@gmail.com>"
+  "Feihong Hsu <feihong.hsu@ahrefs.com>"
+  "Javier Chávarri <javier.chavarri@ahrefs.com>"
 ]
+tags: ["melange" "node" "org:ahrefs"]
 license: "MIT"
-homepage: "https://github.com/jchavarri/melange-fest"
-bug-reports: "https://github.com/jchavarri/melange-fest/issues"
-dev-repo: "git+https://github.com/jchavarri/melange-fest.git"
+homepage: "https://github.com/ahrefs/melange-fest"
+bug-reports: "https://github.com/ahrefs/melange-fest/issues"
+dev-repo: "git+https://github.com/ahrefs/melange-fest.git"
 depends: [
   "ocaml"
   "dune" {>= "3.8"}
