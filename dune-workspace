@@ -1,0 +1,20 @@
+(lang dune 3.8)
+
+(context
+ (default
+  (profile ml)))
+
+(context
+ (default
+  (name reason)
+  (profile re)))
+
+; define env vars
+
+(env
+ (ml
+  (env-vars
+   (ODOC_SYNTAX ocaml)))
+ (re
+  (env-vars
+   (ODOC_SYNTAX reason))))
