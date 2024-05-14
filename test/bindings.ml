@@ -27,18 +27,15 @@ module Promise = struct
   open Fest.Promise
 
   let inner input output =
-    test
+    subtest
       ("Math.defaultRound: " ^ Js.Float.toString input)
       (fun () ->
         expect
         |> equal output (input |> Js.Math.round |> int_of_float |> string_of_int);
         Js.Promise.resolve ())
 
-  let (_ : unit Js.Promise.t) =
-    let* () =
-      test "promise" (fun () ->
-          let* () = inner 0. "0" in
-          inner 0.055 "0")
-    in
-    Js.Promise.resolve ()
+  let () =
+    test "promise" (fun () ->
+        let* () = inner 0. "0" in
+        inner 0.055 "0")
 end

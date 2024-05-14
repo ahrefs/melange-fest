@@ -9,10 +9,14 @@ module Promise = struct
   (** {{:https://v2.ocaml.org/manual/bindingops.html }Monadic binding operator} for promises *)
   let ( let* ) p f = Js.Promise.then_ f p
 
-  external test : string -> (unit -> unit Js.Promise.t) -> unit Js.Promise.t
+  external test : string -> (unit -> unit Js.Promise.t) -> unit = "test"
+  [@@mel.module "node:test"]
+  (** Create a top-level test with a given name and callback function that runs the test and returns a promise. *)
+
+  external subtest : string -> (unit -> unit Js.Promise.t) -> unit Js.Promise.t
     = "test"
   [@@mel.module "node:test"]
-  (** Create a test with a given name and callback function that runs the test and returns a promise. *)
+  (** Create a subtest with a given name and callback function that runs the test and returns a promise. It is supposed to be used inside a {!test} function call. *)
 end
 
 type assertion
