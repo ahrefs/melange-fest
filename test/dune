@@ -14,15 +14,6 @@
 (rule
  (alias runtest)
  (deps
-  (alias_rec main)
-  (:input ./node/test/bindings.mjs))
+  (alias_rec main))
  (action
-  (run node %{input})))
-
-(rule
- (alias runtest)
- (deps
-  (alias_rec main)
-  (:input ./node/test/components.mjs))
- (action
-  (run node %{input})))
+  (run npx node --test ./node/test/**/*.mjs)))
