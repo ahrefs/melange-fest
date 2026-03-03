@@ -15,5 +15,5 @@ let () =
 
     // Check that Hello component renders the name properly.
     let el = RTL.getByText(~matcher=`Str("Hello Nila"), result);
-    expect |> equal(textContent(el), "Hello Nila");
+    equal(expect, textContent(el), "Hello Nila");
   });
