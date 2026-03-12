@@ -38,18 +38,18 @@ external expect : assertion = "node:assert/strict"
     {{:https://nodejs.org/api/assert.html#strict-assertion-mode}
      node:assert/strict} module object *)
 
-external ok : assertion -> bool -> unit = "ok"
+external ok : bool -> (assertion [@mel.this]) -> unit = "ok"
 [@@mel.send]
 (** Tests if the given value is true *)
 
-external equal : assertion -> 'a -> 'a -> unit = "strictEqual"
+external equal : 'a -> 'a -> (assertion [@mel.this]) -> unit = "strictEqual"
 [@@mel.send]
 (** Tests strict equality between the actual and expected parameters as
     determined by
     {{:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is}Object.is()}
 *)
 
-external deep_equal : assertion -> 'a -> 'a -> unit = "deepStrictEqual"
+external deep_equal : 'a -> 'a -> (assertion [@mel.this]) -> unit = "deepStrictEqual"
 [@@mel.send]
 (** Tests for deep strict equality between the actual and expected parameters *)
 
