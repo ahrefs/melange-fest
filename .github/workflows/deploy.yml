@@ -31,12 +31,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 0 # Not needed if lastUpdated is not enabled
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -45,14 +48,19 @@ jobs:
       - uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: 5.4.1
+
       - name: Install all deps
         run: make install
+
       - name: Format check
         run: make format-check
+
       - name: Run tests
         run: make test
+
       - name: Build docs
         run: make docs
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -60,9 +68,11 @@ jobs:
           publish_dir: ./_docs
           enable_jekyll: false
           force_orphan: true
+
       - name: Install dune-release
         if: startsWith(github.ref, 'refs/tags/')
         run: opam install dune-release -y
+
       - name: Release to opam
         if: startsWith(github.ref, 'refs/tags/')
         uses: davesnx/dune-release-action@v0.2.14
