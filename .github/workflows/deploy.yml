@@ -79,4 +79,4 @@ jobs:
         with:
           packages: 'melange-fest'
           changelog: './CHANGES.md'
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
